@@ -1,0 +1,33 @@
+data.archive_file.lambda_zip: Reading...
+random_id.bucket_suffix: Refreshing state... [id=anw46w]
+data.archive_file.lambda_zip: Read complete after 0s [id=85353fa0bc8b97ba2f5880ad89bccfbf5e2412df]
+aws_apigatewayv2_api.http: Refreshing state... [id=t4pwz74fp1]
+aws_iam_role.create: Refreshing state... [id=edus-create-role]
+aws_iam_role.redirect: Refreshing state... [id=edus-redirect-role]
+aws_dynamodb_table.links: Refreshing state... [id=edus-links]
+aws_iam_role.worker: Refreshing state... [id=edus-worker-role]
+aws_s3_bucket.lambda_artifacts: Refreshing state... [id=edus-lambda-artifacts-6a7c38eb]
+aws_sqs_queue.click_dlq: Refreshing state... [id=https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-dlq]
+aws_budgets_budget.portfolio: Refreshing state... [id=503638491662:edus-monthly-budget]
+aws_apigatewayv2_stage.default: Refreshing state... [id=$default]
+aws_sqs_queue.click_queue: Refreshing state... [id=https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-queue]
+aws_iam_role_policy.redirect: Refreshing state... [id=edus-redirect-role:terraform-20261117185352208400000003]
+aws_iam_role_policy.create: Refreshing state... [id=edus-create-role:terraform-20261117185313905800000001]
+aws_lambda_function.redirect: Refreshing state... [id=edus-redirect]
+aws_iam_role_policy.worker: Refreshing state... [id=edus-worker-role:terraform-20261117185352206500000002]
+aws_lambda_function.worker: Refreshing state... [id=edus-worker]
+aws_lambda_function.create: Refreshing state... [id=edus-create]
+aws_lambda_permission.create: Refreshing state... [id=AllowAPIGatewayCreate]
+aws_apigatewayv2_integration.create: Refreshing state... [id=b4k7a2h]
+aws_lambda_event_source_mapping.worker_sqs: Refreshing state... [id=6538b26b-75bd-464b-9711-b48bb6c19a33]
+aws_s3_bucket_public_access_block.lambda_artifacts: Refreshing state... [id=edus-lambda-artifacts-6a7c38eb]
+aws_s3_bucket_server_side_encryption_configuration.lambda_artifacts: Refreshing state... [id=edus-lambda-artifacts-6a7c38eb]
+aws_lambda_permission.redirect: Refreshing state... [id=AllowAPIGatewayRedirect]
+aws_apigatewayv2_integration.redirect: Refreshing state... [id=t1ixd46]
+aws_apigatewayv2_route.create: Refreshing state... [id=vcurvfm]
+aws_apigatewayv2_route.redirect: Refreshing state... [id=hg96joj]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

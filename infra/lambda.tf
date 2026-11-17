@@ -56,7 +56,6 @@ resource "aws_lambda_function" "create" {
   environment {
     variables = {
       TABLE_NAME = aws_dynamodb_table.links.name
-      BASE_URL   = "" # filled after API Gateway exists; not needed for create
     }
   }
 }

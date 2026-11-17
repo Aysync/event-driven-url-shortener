@@ -1,0 +1,995 @@
+[0m[1mrandom_id.bucket_suffix: Refreshing state... [id=anw46w][0m
+[0m[1mdata.archive_file.lambda_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.lambda_zip: Read complete after 0s [id=85353fa0bc8b97ba2f5880ad89bccfbf5e2412df][0m
+[0m[1maws_sqs_queue.click_dlq: Refreshing state... [id=https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-dlq][0m
+[0m[1maws_iam_role.worker: Refreshing state... [id=edus-worker-role][0m
+[0m[1maws_apigatewayv2_api.http: Refreshing state... [id=t4pwz74fp1][0m
+[0m[1maws_s3_bucket.lambda_artifacts: Refreshing state... [id=edus-lambda-artifacts-6a7c38eb][0m
+[0m[1maws_iam_role.create: Refreshing state... [id=edus-create-role][0m
+[0m[1maws_iam_role.redirect: Refreshing state... [id=edus-redirect-role][0m
+[0m[1maws_dynamodb_table.links: Refreshing state... [id=edus-links][0m
+[0m[1maws_budgets_budget.portfolio: Refreshing state... [id=503638491662:edus-monthly-budget][0m
+[0m[1maws_apigatewayv2_stage.default: Refreshing state... [id=$default][0m
+[0m[1maws_sqs_queue.click_queue: Refreshing state... [id=https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-queue][0m
+[0m[1maws_iam_role_policy.redirect: Refreshing state... [id=edus-redirect-role:terraform-20261117185352208400000003][0m
+[0m[1maws_iam_role_policy.worker: Refreshing state... [id=edus-worker-role:terraform-20261117185352206500000002][0m
+[0m[1maws_iam_role_policy.create: Refreshing state... [id=edus-create-role:terraform-20261117185313905800000001][0m
+[0m[1maws_lambda_function.redirect: Refreshing state... [id=edus-redirect][0m
+[0m[1maws_lambda_function.create: Refreshing state... [id=edus-create][0m
+[0m[1maws_lambda_function.worker: Refreshing state... [id=edus-worker][0m
+[0m[1maws_s3_bucket_public_access_block.lambda_artifacts: Refreshing state... [id=edus-lambda-artifacts-6a7c38eb][0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.lambda_artifacts: Refreshing state... [id=edus-lambda-artifacts-6a7c38eb][0m
+[0m[1maws_apigatewayv2_integration.create: Refreshing state... [id=b4k7a2h][0m
+[0m[1maws_lambda_permission.create: Refreshing state... [id=AllowAPIGatewayCreate][0m
+[0m[1maws_lambda_event_source_mapping.worker_sqs: Refreshing state... [id=6538b26b-75bd-464b-9711-b48bb6c19a33][0m
+[0m[1maws_lambda_permission.redirect: Refreshing state... [id=AllowAPIGatewayRedirect][0m
+[0m[1maws_apigatewayv2_integration.redirect: Refreshing state... [id=t1ixd46][0m
+[0m[1maws_apigatewayv2_route.create: Refreshing state... [id=vcurvfm][0m
+[0m[1maws_apigatewayv2_route.redirect: Refreshing state... [id=hg96joj][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_apigatewayv2_api.http[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_api" "http" {
+      [31m-[0m[0m api_endpoint                 = "https://t4pwz74fp1.execute-api.us-east-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m api_key_selection_expression = "$request.header.x-api-key" [90m-> null[0m[0m
+      [31m-[0m[0m arn                          = "arn:aws:apigateway:us-east-1::/apis/t4pwz74fp1" [90m-> null[0m[0m
+      [31m-[0m[0m disable_execute_api_endpoint = false [90m-> null[0m[0m
+      [31m-[0m[0m execution_arn                = "arn:aws:execute-api:us-east-1:503638491662:t4pwz74fp1" [90m-> null[0m[0m
+      [31m-[0m[0m id                           = "t4pwz74fp1" [90m-> null[0m[0m
+      [31m-[0m[0m ip_address_type              = "ipv4" [90m-> null[0m[0m
+      [31m-[0m[0m name                         = "edus-api" [90m-> null[0m[0m
+      [31m-[0m[0m protocol_type                = "HTTP" [90m-> null[0m[0m
+      [31m-[0m[0m route_selection_expression   = "$request.method $request.path" [90m-> null[0m[0m
+      [31m-[0m[0m tags                         = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                     = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m cors_configuration {
+          [31m-[0m[0m allow_credentials = false [90m-> null[0m[0m
+          [31m-[0m[0m allow_headers     = [
+              [31m-[0m[0m "content-type",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m allow_methods     = [
+              [31m-[0m[0m "GET",
+              [31m-[0m[0m "OPTIONS",
+              [31m-[0m[0m "POST",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m allow_origins     = [
+              [31m-[0m[0m "*",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m expose_headers    = [] [90m-> null[0m[0m
+          [31m-[0m[0m max_age           = 300 [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_apigatewayv2_integration.create[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_integration" "create" {
+      [31m-[0m[0m api_id                                    = "t4pwz74fp1" [90m-> null[0m[0m
+      [31m-[0m[0m connection_type                           = "INTERNET" [90m-> null[0m[0m
+      [31m-[0m[0m id                                        = "b4k7a2h" [90m-> null[0m[0m
+      [31m-[0m[0m integration_method                        = "POST" [90m-> null[0m[0m
+      [31m-[0m[0m integration_type                          = "AWS_PROXY" [90m-> null[0m[0m
+      [31m-[0m[0m integration_uri                           = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:503638491662:function:edus-create/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m payload_format_version                    = "2.0" [90m-> null[0m[0m
+      [31m-[0m[0m request_parameters                        = {} [90m-> null[0m[0m
+      [31m-[0m[0m request_templates                         = {} [90m-> null[0m[0m
+      [31m-[0m[0m timeout_milliseconds                      = 30000 [90m-> null[0m[0m
+        [90m# (8 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_integration.redirect[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_integration" "redirect" {
+      [31m-[0m[0m api_id                                    = "t4pwz74fp1" [90m-> null[0m[0m
+      [31m-[0m[0m connection_type                           = "INTERNET" [90m-> null[0m[0m
+      [31m-[0m[0m id                                        = "t1ixd46" [90m-> null[0m[0m
+      [31m-[0m[0m integration_method                        = "POST" [90m-> null[0m[0m
+      [31m-[0m[0m integration_type                          = "AWS_PROXY" [90m-> null[0m[0m
+      [31m-[0m[0m integration_uri                           = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:503638491662:function:edus-redirect/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m payload_format_version                    = "2.0" [90m-> null[0m[0m
+      [31m-[0m[0m request_parameters                        = {} [90m-> null[0m[0m
+      [31m-[0m[0m request_templates                         = {} [90m-> null[0m[0m
+      [31m-[0m[0m timeout_milliseconds                      = 30000 [90m-> null[0m[0m
+        [90m# (8 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_route.create[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_route" "create" {
+      [31m-[0m[0m api_id                              = "t4pwz74fp1" [90m-> null[0m[0m
+      [31m-[0m[0m api_key_required                    = false [90m-> null[0m[0m
+      [31m-[0m[0m authorization_scopes                = [] [90m-> null[0m[0m
+      [31m-[0m[0m authorization_type                  = "NONE" [90m-> null[0m[0m
+      [31m-[0m[0m id                                  = "vcurvfm" [90m-> null[0m[0m
+      [31m-[0m[0m request_models                      = {} [90m-> null[0m[0m
+      [31m-[0m[0m route_key                           = "POST /links" [90m-> null[0m[0m
+      [31m-[0m[0m target                              = "integrations/b4k7a2h" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_route.redirect[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_route" "redirect" {
+      [31m-[0m[0m api_id                              = "t4pwz74fp1" [90m-> null[0m[0m
+      [31m-[0m[0m api_key_required                    = false [90m-> null[0m[0m
+      [31m-[0m[0m authorization_scopes                = [] [90m-> null[0m[0m
+      [31m-[0m[0m authorization_type                  = "NONE" [90m-> null[0m[0m
+      [31m-[0m[0m id                                  = "hg96joj" [90m-> null[0m[0m
+      [31m-[0m[0m request_models                      = {} [90m-> null[0m[0m
+      [31m-[0m[0m route_key                           = "GET /{code}" [90m-> null[0m[0m
+      [31m-[0m[0m target                              = "integrations/t1ixd46" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_stage.default[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_stage" "default" {
+      [31m-[0m[0m api_id                = "t4pwz74fp1" [90m-> null[0m[0m
+      [31m-[0m[0m arn                   = "arn:aws:apigateway:us-east-1::/apis/t4pwz74fp1/stages/$default" [90m-> null[0m[0m
+      [31m-[0m[0m auto_deploy           = true [90m-> null[0m[0m
+      [31m-[0m[0m deployment_id         = "eql2ty" [90m-> null[0m[0m
+      [31m-[0m[0m execution_arn         = "arn:aws:execute-api:us-east-1:503638491662:t4pwz74fp1/$default" [90m-> null[0m[0m
+      [31m-[0m[0m id                    = "$default" [90m-> null[0m[0m
+      [31m-[0m[0m invoke_url            = "https://t4pwz74fp1.execute-api.us-east-1.amazonaws.com/" [90m-> null[0m[0m
+      [31m-[0m[0m name                  = "$default" [90m-> null[0m[0m
+      [31m-[0m[0m stage_variables       = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all              = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+        [90m# (2 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m default_route_settings {
+          [31m-[0m[0m data_trace_enabled       = false [90m-> null[0m[0m
+          [31m-[0m[0m detailed_metrics_enabled = false [90m-> null[0m[0m
+          [31m-[0m[0m throttling_burst_limit   = 10 [90m-> null[0m[0m
+          [31m-[0m[0m throttling_rate_limit    = 5 [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+    }
+
+[1m  # aws_budgets_budget.portfolio[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_budgets_budget" "portfolio" {
+      [31m-[0m[0m account_id        = "503638491662" [90m-> null[0m[0m
+      [31m-[0m[0m arn               = "arn:aws:budgets::503638491662:budget/edus-monthly-budget" [90m-> null[0m[0m
+      [31m-[0m[0m budget_type       = "COST" [90m-> null[0m[0m
+      [31m-[0m[0m id                = "503638491662:edus-monthly-budget" [90m-> null[0m[0m
+      [31m-[0m[0m limit_amount      = "1.0" [90m-> null[0m[0m
+      [31m-[0m[0m limit_unit        = "USD" [90m-> null[0m[0m
+      [31m-[0m[0m name              = "edus-monthly-budget" [90m-> null[0m[0m
+      [31m-[0m[0m tags              = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all          = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m time_period_end   = "2087-06-15_00:00" [90m-> null[0m[0m
+      [31m-[0m[0m time_period_start = "2026-11-01_00:00" [90m-> null[0m[0m
+      [31m-[0m[0m time_unit         = "MONTHLY" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+
+      [31m-[0m[0m cost_types {
+          [31m-[0m[0m include_credit             = true [90m-> null[0m[0m
+          [31m-[0m[0m include_discount           = true [90m-> null[0m[0m
+          [31m-[0m[0m include_other_subscription = true [90m-> null[0m[0m
+          [31m-[0m[0m include_recurring          = true [90m-> null[0m[0m
+          [31m-[0m[0m include_refund             = true [90m-> null[0m[0m
+          [31m-[0m[0m include_subscription       = true [90m-> null[0m[0m
+          [31m-[0m[0m include_support            = true [90m-> null[0m[0m
+          [31m-[0m[0m include_tax                = true [90m-> null[0m[0m
+          [31m-[0m[0m include_upfront            = true [90m-> null[0m[0m
+          [31m-[0m[0m use_amortized              = false [90m-> null[0m[0m
+          [31m-[0m[0m use_blended                = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m notification {
+          [31m-[0m[0m comparison_operator        = "GREATER_THAN" [90m-> null[0m[0m
+          [31m-[0m[0m notification_type          = "ACTUAL" [90m-> null[0m[0m
+          [31m-[0m[0m subscriber_email_addresses = [
+              [31m-[0m[0m "ricannan00@gmail.com",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m subscriber_sns_topic_arns  = [] [90m-> null[0m[0m
+          [31m-[0m[0m threshold                  = 80 [90m-> null[0m[0m
+          [31m-[0m[0m threshold_type             = "PERCENTAGE" [90m-> null[0m[0m
+        }
+      [31m-[0m[0m notification {
+          [31m-[0m[0m comparison_operator        = "GREATER_THAN" [90m-> null[0m[0m
+          [31m-[0m[0m notification_type          = "FORECASTED" [90m-> null[0m[0m
+          [31m-[0m[0m subscriber_email_addresses = [
+              [31m-[0m[0m "ricannan00@gmail.com",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m subscriber_sns_topic_arns  = [] [90m-> null[0m[0m
+          [31m-[0m[0m threshold                  = 100 [90m-> null[0m[0m
+          [31m-[0m[0m threshold_type             = "PERCENTAGE" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_dynamodb_table.links[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_dynamodb_table" "links" {
+      [31m-[0m[0m arn                         = "arn:aws:dynamodb:us-east-1:503638491662:table/edus-links" [90m-> null[0m[0m
+      [31m-[0m[0m billing_mode                = "PAY_PER_REQUEST" [90m-> null[0m[0m
+      [31m-[0m[0m deletion_protection_enabled = false [90m-> null[0m[0m
+      [31m-[0m[0m hash_key                    = "pk" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "edus-links" [90m-> null[0m[0m
+      [31m-[0m[0m name                        = "edus-links" [90m-> null[0m[0m
+      [31m-[0m[0m range_key                   = "sk" [90m-> null[0m[0m
+      [31m-[0m[0m read_capacity               = 0 [90m-> null[0m[0m
+      [31m-[0m[0m stream_enabled              = false [90m-> null[0m[0m
+      [31m-[0m[0m table_class                 = "STANDARD" [90m-> null[0m[0m
+      [31m-[0m[0m tags                        = {
+          [31m-[0m[0m "Name" = "edus-links"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                    = {
+          [31m-[0m[0m "Name"      = "edus-links"
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m write_capacity              = 0 [90m-> null[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m attribute {
+          [31m-[0m[0m name = "pk" [90m-> null[0m[0m
+          [31m-[0m[0m type = "S" [90m-> null[0m[0m
+        }
+      [31m-[0m[0m attribute {
+          [31m-[0m[0m name = "sk" [90m-> null[0m[0m
+          [31m-[0m[0m type = "S" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m point_in_time_recovery {
+          [31m-[0m[0m enabled                 = false [90m-> null[0m[0m
+          [31m-[0m[0m recovery_period_in_days = 0 [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m server_side_encryption {
+          [31m-[0m[0m enabled     = true [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m ttl {
+          [31m-[0m[0m enabled        = false [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+    }
+
+[1m  # aws_iam_role.create[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role" "create" {
+      [31m-[0m[0m arn                   = "arn:aws:iam::503638491662:role/edus-create-role" [90m-> null[0m[0m
+      [31m-[0m[0m assume_role_policy    = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "sts:AssumeRole"
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Principal = {
+                          [31m-[0m[0m Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m create_date           = "2026-11-17T18:52:52Z" [90m-> null[0m[0m
+      [31m-[0m[0m force_detach_policies = false [90m-> null[0m[0m
+      [31m-[0m[0m id                    = "edus-create-role" [90m-> null[0m[0m
+      [31m-[0m[0m managed_policy_arns   = [] [90m-> null[0m[0m
+      [31m-[0m[0m max_session_duration  = 3600 [90m-> null[0m[0m
+      [31m-[0m[0m name                  = "edus-create-role" [90m-> null[0m[0m
+      [31m-[0m[0m path                  = "/" [90m-> null[0m[0m
+      [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all              = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m unique_id             = "AROAXKQZRQIHF6VS4EZP5" [90m-> null[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m inline_policy {
+          [31m-[0m[0m name   = "terraform-20261117185313905800000001" [90m-> null[0m[0m
+          [31m-[0m[0m policy = jsonencode(
+                {
+                  [31m-[0m[0m Statement = [
+                      [31m-[0m[0m {
+                          [31m-[0m[0m Action   = [
+                              [31m-[0m[0m "dynamodb:PutItem",
+                              [31m-[0m[0m "dynamodb:GetItem",
+                            ]
+                          [31m-[0m[0m Effect   = "Allow"
+                          [31m-[0m[0m Resource = "arn:aws:dynamodb:us-east-1:503638491662:table/edus-links"
+                        },
+                      [31m-[0m[0m {
+                          [31m-[0m[0m Action   = [
+                              [31m-[0m[0m "logs:CreateLogGroup",
+                              [31m-[0m[0m "logs:CreateLogStream",
+                              [31m-[0m[0m "logs:PutLogEvents",
+                            ]
+                          [31m-[0m[0m Effect   = "Allow"
+                          [31m-[0m[0m Resource = "arn:aws:logs:us-east-1:*:*"
+                        },
+                    ]
+                  [31m-[0m[0m Version   = "2012-10-17"
+                }
+            ) [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_iam_role.redirect[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role" "redirect" {
+      [31m-[0m[0m arn                   = "arn:aws:iam::503638491662:role/edus-redirect-role" [90m-> null[0m[0m
+      [31m-[0m[0m assume_role_policy    = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "sts:AssumeRole"
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Principal = {
+                          [31m-[0m[0m Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m create_date           = "2026-11-17T18:52:52Z" [90m-> null[0m[0m
+      [31m-[0m[0m force_detach_policies = false [90m-> null[0m[0m
+      [31m-[0m[0m id                    = "edus-redirect-role" [90m-> null[0m[0m
+      [31m-[0m[0m managed_policy_arns   = [] [90m-> null[0m[0m
+      [31m-[0m[0m max_session_duration  = 3600 [90m-> null[0m[0m
+      [31m-[0m[0m name                  = "edus-redirect-role" [90m-> null[0m[0m
+      [31m-[0m[0m path                  = "/" [90m-> null[0m[0m
+      [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all              = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m unique_id             = "AROAXKQZRQIHMH3H4TVGL" [90m-> null[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m inline_policy {
+          [31m-[0m[0m name   = "terraform-20261117185352208400000003" [90m-> null[0m[0m
+          [31m-[0m[0m policy = jsonencode(
+                {
+                  [31m-[0m[0m Statement = [
+                      [31m-[0m[0m {
+                          [31m-[0m[0m Action   = [
+                              [31m-[0m[0m "dynamodb:GetItem",
+                            ]
+                          [31m-[0m[0m Effect   = "Allow"
+                          [31m-[0m[0m Resource = "arn:aws:dynamodb:us-east-1:503638491662:table/edus-links"
+                        },
+                      [31m-[0m[0m {
+                          [31m-[0m[0m Action   = [
+                              [31m-[0m[0m "sqs:SendMessage",
+                            ]
+                          [31m-[0m[0m Effect   = "Allow"
+                          [31m-[0m[0m Resource = "arn:aws:sqs:us-east-1:503638491662:edus-click-queue"
+                        },
+                      [31m-[0m[0m {
+                          [31m-[0m[0m Action   = [
+                              [31m-[0m[0m "logs:CreateLogGroup",
+                              [31m-[0m[0m "logs:CreateLogStream",
+                              [31m-[0m[0m "logs:PutLogEvents",
+                            ]
+                          [31m-[0m[0m Effect   = "Allow"
+                          [31m-[0m[0m Resource = "arn:aws:logs:us-east-1:*:*"
+                        },
+                    ]
+                  [31m-[0m[0m Version   = "2012-10-17"
+                }
+            ) [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_iam_role.worker[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role" "worker" {
+      [31m-[0m[0m arn                   = "arn:aws:iam::503638491662:role/edus-worker-role" [90m-> null[0m[0m
+      [31m-[0m[0m assume_role_policy    = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "sts:AssumeRole"
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Principal = {
+                          [31m-[0m[0m Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m create_date           = "2026-11-17T18:52:52Z" [90m-> null[0m[0m
+      [31m-[0m[0m force_detach_policies = false [90m-> null[0m[0m
+      [31m-[0m[0m id                    = "edus-worker-role" [90m-> null[0m[0m
+      [31m-[0m[0m managed_policy_arns   = [] [90m-> null[0m[0m
+      [31m-[0m[0m max_session_duration  = 3600 [90m-> null[0m[0m
+      [31m-[0m[0m name                  = "edus-worker-role" [90m-> null[0m[0m
+      [31m-[0m[0m path                  = "/" [90m-> null[0m[0m
+      [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all              = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m unique_id             = "AROAXKQZRQIHPXIKTFW2Q" [90m-> null[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m inline_policy {
+          [31m-[0m[0m name   = "terraform-20261117185352206500000002" [90m-> null[0m[0m
+          [31m-[0m[0m policy = jsonencode(
+                {
+                  [31m-[0m[0m Statement = [
+                      [31m-[0m[0m {
+                          [31m-[0m[0m Action   = [
+                              [31m-[0m[0m "dynamodb:UpdateItem",
+                            ]
+                          [31m-[0m[0m Effect   = "Allow"
+                          [31m-[0m[0m Resource = "arn:aws:dynamodb:us-east-1:503638491662:table/edus-links"
+                        },
+                      [31m-[0m[0m {
+                          [31m-[0m[0m Action   = [
+                              [31m-[0m[0m "sqs:ReceiveMessage",
+                              [31m-[0m[0m "sqs:DeleteMessage",
+                              [31m-[0m[0m "sqs:GetQueueAttributes",
+                            ]
+                          [31m-[0m[0m Effect   = "Allow"
+                          [31m-[0m[0m Resource = "arn:aws:sqs:us-east-1:503638491662:edus-click-queue"
+                        },
+                      [31m-[0m[0m {
+                          [31m-[0m[0m Action   = [
+                              [31m-[0m[0m "logs:CreateLogGroup",
+                              [31m-[0m[0m "logs:CreateLogStream",
+                              [31m-[0m[0m "logs:PutLogEvents",
+                            ]
+                          [31m-[0m[0m Effect   = "Allow"
+                          [31m-[0m[0m Resource = "arn:aws:logs:us-east-1:*:*"
+                        },
+                    ]
+                  [31m-[0m[0m Version   = "2012-10-17"
+                }
+            ) [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_iam_role_policy.create[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy" "create" {
+      [31m-[0m[0m id          = "edus-create-role:terraform-20261117185313905800000001" [90m-> null[0m[0m
+      [31m-[0m[0m name        = "terraform-20261117185313905800000001" [90m-> null[0m[0m
+      [31m-[0m[0m name_prefix = "terraform-" [90m-> null[0m[0m
+      [31m-[0m[0m policy      = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "dynamodb:PutItem",
+                          [31m-[0m[0m "dynamodb:GetItem",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:dynamodb:us-east-1:503638491662:table/edus-links"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "logs:CreateLogGroup",
+                          [31m-[0m[0m "logs:CreateLogStream",
+                          [31m-[0m[0m "logs:PutLogEvents",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:logs:us-east-1:*:*"
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m role        = "edus-create-role" [90m-> null[0m[0m
+    }
+
+[1m  # aws_iam_role_policy.redirect[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy" "redirect" {
+      [31m-[0m[0m id          = "edus-redirect-role:terraform-20261117185352208400000003" [90m-> null[0m[0m
+      [31m-[0m[0m name        = "terraform-20261117185352208400000003" [90m-> null[0m[0m
+      [31m-[0m[0m name_prefix = "terraform-" [90m-> null[0m[0m
+      [31m-[0m[0m policy      = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "dynamodb:GetItem",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:dynamodb:us-east-1:503638491662:table/edus-links"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "sqs:SendMessage",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:sqs:us-east-1:503638491662:edus-click-queue"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "logs:CreateLogGroup",
+                          [31m-[0m[0m "logs:CreateLogStream",
+                          [31m-[0m[0m "logs:PutLogEvents",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:logs:us-east-1:*:*"
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m role        = "edus-redirect-role" [90m-> null[0m[0m
+    }
+
+[1m  # aws_iam_role_policy.worker[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy" "worker" {
+      [31m-[0m[0m id          = "edus-worker-role:terraform-20261117185352206500000002" [90m-> null[0m[0m
+      [31m-[0m[0m name        = "terraform-20261117185352206500000002" [90m-> null[0m[0m
+      [31m-[0m[0m name_prefix = "terraform-" [90m-> null[0m[0m
+      [31m-[0m[0m policy      = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "dynamodb:UpdateItem",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:dynamodb:us-east-1:503638491662:table/edus-links"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "sqs:ReceiveMessage",
+                          [31m-[0m[0m "sqs:DeleteMessage",
+                          [31m-[0m[0m "sqs:GetQueueAttributes",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:sqs:us-east-1:503638491662:edus-click-queue"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "logs:CreateLogGroup",
+                          [31m-[0m[0m "logs:CreateLogStream",
+                          [31m-[0m[0m "logs:PutLogEvents",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:logs:us-east-1:*:*"
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m role        = "edus-worker-role" [90m-> null[0m[0m
+    }
+
+[1m  # aws_lambda_event_source_mapping.worker_sqs[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_event_source_mapping" "worker_sqs" {
+      [31m-[0m[0m arn                                = "arn:aws:lambda:us-east-1:503638491662:event-source-mapping:6538b26b-75bd-464b-9711-b48bb6c19a33" [90m-> null[0m[0m
+      [31m-[0m[0m batch_size                         = 10 [90m-> null[0m[0m
+      [31m-[0m[0m bisect_batch_on_function_error     = false [90m-> null[0m[0m
+      [31m-[0m[0m enabled                            = true [90m-> null[0m[0m
+      [31m-[0m[0m event_source_arn                   = "arn:aws:sqs:us-east-1:503638491662:edus-click-queue" [90m-> null[0m[0m
+      [31m-[0m[0m function_arn                       = "arn:aws:lambda:us-east-1:503638491662:function:edus-worker" [90m-> null[0m[0m
+      [31m-[0m[0m function_name                      = "arn:aws:lambda:us-east-1:503638491662:function:edus-worker" [90m-> null[0m[0m
+      [31m-[0m[0m function_response_types            = [] [90m-> null[0m[0m
+      [31m-[0m[0m id                                 = "6538b26b-75bd-464b-9711-b48bb6c19a33" [90m-> null[0m[0m
+      [31m-[0m[0m last_modified                      = "2026-11-17T18:53:58Z" [90m-> null[0m[0m
+      [31m-[0m[0m maximum_batching_window_in_seconds = 0 [90m-> null[0m[0m
+      [31m-[0m[0m maximum_record_age_in_seconds      = 0 [90m-> null[0m[0m
+      [31m-[0m[0m maximum_retry_attempts             = 0 [90m-> null[0m[0m
+      [31m-[0m[0m parallelization_factor             = 0 [90m-> null[0m[0m
+      [31m-[0m[0m queues                             = [] [90m-> null[0m[0m
+      [31m-[0m[0m state                              = "Enabled" [90m-> null[0m[0m
+      [31m-[0m[0m state_transition_reason            = "USER_INITIATED" [90m-> null[0m[0m
+      [31m-[0m[0m tags                               = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                           = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m topics                             = [] [90m-> null[0m[0m
+      [31m-[0m[0m tumbling_window_in_seconds         = 0 [90m-> null[0m[0m
+      [31m-[0m[0m uuid                               = "6538b26b-75bd-464b-9711-b48bb6c19a33" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_lambda_function.create[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_function" "create" {
+      [31m-[0m[0m architectures                  = [
+          [31m-[0m[0m "x86_64",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m arn                            = "arn:aws:lambda:us-east-1:503638491662:function:edus-create" [90m-> null[0m[0m
+      [31m-[0m[0m code_sha256                    = "VKi1DFMvNjnQKJXra6RfeASgy7i5p3uHvmVLl79Bw9Q=" [90m-> null[0m[0m
+      [31m-[0m[0m filename                       = "./build/lambda.zip" [90m-> null[0m[0m
+      [31m-[0m[0m function_name                  = "edus-create" [90m-> null[0m[0m
+      [31m-[0m[0m handler                        = "handlers/create.handler" [90m-> null[0m[0m
+      [31m-[0m[0m id                             = "edus-create" [90m-> null[0m[0m
+      [31m-[0m[0m invoke_arn                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:503638491662:function:edus-create/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m last_modified                  = "2026-11-17T18:53:11.950+0000" [90m-> null[0m[0m
+      [31m-[0m[0m layers                         = [] [90m-> null[0m[0m
+      [31m-[0m[0m memory_size                    = 128 [90m-> null[0m[0m
+      [31m-[0m[0m package_type                   = "Zip" [90m-> null[0m[0m
+      [31m-[0m[0m publish                        = false [90m-> null[0m[0m
+      [31m-[0m[0m qualified_arn                  = "arn:aws:lambda:us-east-1:503638491662:function:edus-create:$LATEST" [90m-> null[0m[0m
+      [31m-[0m[0m qualified_invoke_arn           = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:503638491662:function:edus-create:$LATEST/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m reserved_concurrent_executions = -1 [90m-> null[0m[0m
+      [31m-[0m[0m role                           = "arn:aws:iam::503638491662:role/edus-create-role" [90m-> null[0m[0m
+      [31m-[0m[0m runtime                        = "nodejs20.x" [90m-> null[0m[0m
+      [31m-[0m[0m skip_destroy                   = false [90m-> null[0m[0m
+      [31m-[0m[0m source_code_hash               = "VKi1DFMvNjnQKJXra6RfeASgy7i5p3uHvmVLl79Bw9Q=" [90m-> null[0m[0m
+      [31m-[0m[0m source_code_size               = 2945 [90m-> null[0m[0m
+      [31m-[0m[0m tags                           = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                       = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m timeout                        = 10 [90m-> null[0m[0m
+      [31m-[0m[0m version                        = "$LATEST" [90m-> null[0m[0m
+        [90m# (6 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m environment {
+          [31m-[0m[0m variables = {
+              [31m-[0m[0m "TABLE_NAME" = "edus-links"
+            } [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m ephemeral_storage {
+          [31m-[0m[0m size = 512 [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m logging_config {
+          [31m-[0m[0m log_format            = "Text" [90m-> null[0m[0m
+          [31m-[0m[0m log_group             = "/aws/lambda/edus-create" [90m-> null[0m[0m
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        }
+
+      [31m-[0m[0m tracing_config {
+          [31m-[0m[0m mode = "PassThrough" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_lambda_function.redirect[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_function" "redirect" {
+      [31m-[0m[0m architectures                  = [
+          [31m-[0m[0m "x86_64",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m arn                            = "arn:aws:lambda:us-east-1:503638491662:function:edus-redirect" [90m-> null[0m[0m
+      [31m-[0m[0m code_sha256                    = "VKi1DFMvNjnQKJXra6RfeASgy7i5p3uHvmVLl79Bw9Q=" [90m-> null[0m[0m
+      [31m-[0m[0m filename                       = "./build/lambda.zip" [90m-> null[0m[0m
+      [31m-[0m[0m function_name                  = "edus-redirect" [90m-> null[0m[0m
+      [31m-[0m[0m handler                        = "handlers/redirect.handler" [90m-> null[0m[0m
+      [31m-[0m[0m id                             = "edus-redirect" [90m-> null[0m[0m
+      [31m-[0m[0m invoke_arn                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:503638491662:function:edus-redirect/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m last_modified                  = "2026-11-17T18:53:49.527+0000" [90m-> null[0m[0m
+      [31m-[0m[0m layers                         = [] [90m-> null[0m[0m
+      [31m-[0m[0m memory_size                    = 128 [90m-> null[0m[0m
+      [31m-[0m[0m package_type                   = "Zip" [90m-> null[0m[0m
+      [31m-[0m[0m publish                        = false [90m-> null[0m[0m
+      [31m-[0m[0m qualified_arn                  = "arn:aws:lambda:us-east-1:503638491662:function:edus-redirect:$LATEST" [90m-> null[0m[0m
+      [31m-[0m[0m qualified_invoke_arn           = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:503638491662:function:edus-redirect:$LATEST/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m reserved_concurrent_executions = -1 [90m-> null[0m[0m
+      [31m-[0m[0m role                           = "arn:aws:iam::503638491662:role/edus-redirect-role" [90m-> null[0m[0m
+      [31m-[0m[0m runtime                        = "nodejs20.x" [90m-> null[0m[0m
+      [31m-[0m[0m skip_destroy                   = false [90m-> null[0m[0m
+      [31m-[0m[0m source_code_hash               = "VKi1DFMvNjnQKJXra6RfeASgy7i5p3uHvmVLl79Bw9Q=" [90m-> null[0m[0m
+      [31m-[0m[0m source_code_size               = 2945 [90m-> null[0m[0m
+      [31m-[0m[0m tags                           = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                       = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m timeout                        = 10 [90m-> null[0m[0m
+      [31m-[0m[0m version                        = "$LATEST" [90m-> null[0m[0m
+        [90m# (6 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m environment {
+          [31m-[0m[0m variables = {
+              [31m-[0m[0m "CLICK_QUEUE_URL" = "https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-queue"
+              [31m-[0m[0m "TABLE_NAME"      = "edus-links"
+            } [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m ephemeral_storage {
+          [31m-[0m[0m size = 512 [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m logging_config {
+          [31m-[0m[0m log_format            = "Text" [90m-> null[0m[0m
+          [31m-[0m[0m log_group             = "/aws/lambda/edus-redirect" [90m-> null[0m[0m
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        }
+
+      [31m-[0m[0m tracing_config {
+          [31m-[0m[0m mode = "PassThrough" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_lambda_function.worker[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_function" "worker" {
+      [31m-[0m[0m architectures                  = [
+          [31m-[0m[0m "x86_64",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m arn                            = "arn:aws:lambda:us-east-1:503638491662:function:edus-worker" [90m-> null[0m[0m
+      [31m-[0m[0m code_sha256                    = "VKi1DFMvNjnQKJXra6RfeASgy7i5p3uHvmVLl79Bw9Q=" [90m-> null[0m[0m
+      [31m-[0m[0m filename                       = "./build/lambda.zip" [90m-> null[0m[0m
+      [31m-[0m[0m function_name                  = "edus-worker" [90m-> null[0m[0m
+      [31m-[0m[0m handler                        = "handlers/worker.handler" [90m-> null[0m[0m
+      [31m-[0m[0m id                             = "edus-worker" [90m-> null[0m[0m
+      [31m-[0m[0m invoke_arn                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:503638491662:function:edus-worker/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m last_modified                  = "2026-11-17T18:53:19.580+0000" [90m-> null[0m[0m
+      [31m-[0m[0m layers                         = [] [90m-> null[0m[0m
+      [31m-[0m[0m memory_size                    = 128 [90m-> null[0m[0m
+      [31m-[0m[0m package_type                   = "Zip" [90m-> null[0m[0m
+      [31m-[0m[0m publish                        = false [90m-> null[0m[0m
+      [31m-[0m[0m qualified_arn                  = "arn:aws:lambda:us-east-1:503638491662:function:edus-worker:$LATEST" [90m-> null[0m[0m
+      [31m-[0m[0m qualified_invoke_arn           = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:503638491662:function:edus-worker:$LATEST/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m reserved_concurrent_executions = -1 [90m-> null[0m[0m
+      [31m-[0m[0m role                           = "arn:aws:iam::503638491662:role/edus-worker-role" [90m-> null[0m[0m
+      [31m-[0m[0m runtime                        = "nodejs20.x" [90m-> null[0m[0m
+      [31m-[0m[0m skip_destroy                   = false [90m-> null[0m[0m
+      [31m-[0m[0m source_code_hash               = "VKi1DFMvNjnQKJXra6RfeASgy7i5p3uHvmVLl79Bw9Q=" [90m-> null[0m[0m
+      [31m-[0m[0m source_code_size               = 2945 [90m-> null[0m[0m
+      [31m-[0m[0m tags                           = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                       = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m timeout                        = 10 [90m-> null[0m[0m
+      [31m-[0m[0m version                        = "$LATEST" [90m-> null[0m[0m
+        [90m# (6 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m environment {
+          [31m-[0m[0m variables = {
+              [31m-[0m[0m "TABLE_NAME" = "edus-links"
+            } [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m ephemeral_storage {
+          [31m-[0m[0m size = 512 [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m logging_config {
+          [31m-[0m[0m log_format            = "Text" [90m-> null[0m[0m
+          [31m-[0m[0m log_group             = "/aws/lambda/edus-worker" [90m-> null[0m[0m
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        }
+
+      [31m-[0m[0m tracing_config {
+          [31m-[0m[0m mode = "PassThrough" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_lambda_permission.create[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_permission" "create" {
+      [31m-[0m[0m action              = "lambda:InvokeFunction" [90m-> null[0m[0m
+      [31m-[0m[0m function_name       = "edus-create" [90m-> null[0m[0m
+      [31m-[0m[0m id                  = "AllowAPIGatewayCreate" [90m-> null[0m[0m
+      [31m-[0m[0m principal           = "apigateway.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m source_arn          = "arn:aws:execute-api:us-east-1:503638491662:t4pwz74fp1/*/*" [90m-> null[0m[0m
+      [31m-[0m[0m statement_id        = "AllowAPIGatewayCreate" [90m-> null[0m[0m
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_lambda_permission.redirect[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_permission" "redirect" {
+      [31m-[0m[0m action              = "lambda:InvokeFunction" [90m-> null[0m[0m
+      [31m-[0m[0m function_name       = "edus-redirect" [90m-> null[0m[0m
+      [31m-[0m[0m id                  = "AllowAPIGatewayRedirect" [90m-> null[0m[0m
+      [31m-[0m[0m principal           = "apigateway.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m source_arn          = "arn:aws:execute-api:us-east-1:503638491662:t4pwz74fp1/*/*" [90m-> null[0m[0m
+      [31m-[0m[0m statement_id        = "AllowAPIGatewayRedirect" [90m-> null[0m[0m
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_s3_bucket.lambda_artifacts[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_s3_bucket" "lambda_artifacts" {
+      [31m-[0m[0m arn                         = "arn:aws:s3:::edus-lambda-artifacts-6a7c38eb" [90m-> null[0m[0m
+      [31m-[0m[0m bucket                      = "edus-lambda-artifacts-6a7c38eb" [90m-> null[0m[0m
+      [31m-[0m[0m bucket_domain_name          = "edus-lambda-artifacts-6a7c38eb.s3.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m bucket_regional_domain_name = "edus-lambda-artifacts-6a7c38eb.s3.us-east-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m force_destroy               = true [90m-> null[0m[0m
+      [31m-[0m[0m hosted_zone_id              = "Z3AQBSTGFYJSTF" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "edus-lambda-artifacts-6a7c38eb" [90m-> null[0m[0m
+      [31m-[0m[0m object_lock_enabled         = false [90m-> null[0m[0m
+      [31m-[0m[0m region                      = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m request_payer               = "BucketOwner" [90m-> null[0m[0m
+      [31m-[0m[0m tags                        = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                    = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m grant {
+          [31m-[0m[0m id          = "0dd21e3ed97c8c9738a28dd2acb73ba07a1fd6ac62f1a6aee71b59aa857a9e57" [90m-> null[0m[0m
+          [31m-[0m[0m permissions = [
+              [31m-[0m[0m "FULL_CONTROL",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m type        = "CanonicalUser" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m server_side_encryption_configuration {
+          [31m-[0m[0m rule {
+              [31m-[0m[0m bucket_key_enabled = false [90m-> null[0m[0m
+
+              [31m-[0m[0m apply_server_side_encryption_by_default {
+                  [31m-[0m[0m sse_algorithm     = "AES256" [90m-> null[0m[0m
+                    [90m# (1 unchanged attribute hidden)[0m[0m
+                }
+            }
+        }
+
+      [31m-[0m[0m versioning {
+          [31m-[0m[0m enabled    = false [90m-> null[0m[0m
+          [31m-[0m[0m mfa_delete = false [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_s3_bucket_public_access_block.lambda_artifacts[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_s3_bucket_public_access_block" "lambda_artifacts" {
+      [31m-[0m[0m block_public_acls       = true [90m-> null[0m[0m
+      [31m-[0m[0m block_public_policy     = true [90m-> null[0m[0m
+      [31m-[0m[0m bucket                  = "edus-lambda-artifacts-6a7c38eb" [90m-> null[0m[0m
+      [31m-[0m[0m id                      = "edus-lambda-artifacts-6a7c38eb" [90m-> null[0m[0m
+      [31m-[0m[0m ignore_public_acls      = true [90m-> null[0m[0m
+      [31m-[0m[0m restrict_public_buckets = true [90m-> null[0m[0m
+    }
+
+[1m  # aws_s3_bucket_server_side_encryption_configuration.lambda_artifacts[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_s3_bucket_server_side_encryption_configuration" "lambda_artifacts" {
+      [31m-[0m[0m bucket                = "edus-lambda-artifacts-6a7c38eb" [90m-> null[0m[0m
+      [31m-[0m[0m id                    = "edus-lambda-artifacts-6a7c38eb" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+
+      [31m-[0m[0m rule {
+          [31m-[0m[0m bucket_key_enabled = false [90m-> null[0m[0m
+
+          [31m-[0m[0m apply_server_side_encryption_by_default {
+              [31m-[0m[0m sse_algorithm     = "AES256" [90m-> null[0m[0m
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            }
+        }
+    }
+
+[1m  # aws_sqs_queue.click_dlq[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_sqs_queue" "click_dlq" {
+      [31m-[0m[0m arn                               = "arn:aws:sqs:us-east-1:503638491662:edus-click-dlq" [90m-> null[0m[0m
+      [31m-[0m[0m content_based_deduplication       = false [90m-> null[0m[0m
+      [31m-[0m[0m delay_seconds                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m fifo_queue                        = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                = "https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-dlq" [90m-> null[0m[0m
+      [31m-[0m[0m kms_data_key_reuse_period_seconds = 300 [90m-> null[0m[0m
+      [31m-[0m[0m max_message_size                  = 262144 [90m-> null[0m[0m
+      [31m-[0m[0m message_retention_seconds         = 1209600 [90m-> null[0m[0m
+      [31m-[0m[0m name                              = "edus-click-dlq" [90m-> null[0m[0m
+      [31m-[0m[0m receive_wait_time_seconds         = 0 [90m-> null[0m[0m
+      [31m-[0m[0m sqs_managed_sse_enabled           = true [90m-> null[0m[0m
+      [31m-[0m[0m tags                              = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                          = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m url                               = "https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-dlq" [90m-> null[0m[0m
+      [31m-[0m[0m visibility_timeout_seconds        = 30 [90m-> null[0m[0m
+        [90m# (7 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_sqs_queue.click_queue[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_sqs_queue" "click_queue" {
+      [31m-[0m[0m arn                               = "arn:aws:sqs:us-east-1:503638491662:edus-click-queue" [90m-> null[0m[0m
+      [31m-[0m[0m content_based_deduplication       = false [90m-> null[0m[0m
+      [31m-[0m[0m delay_seconds                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m fifo_queue                        = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                = "https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-queue" [90m-> null[0m[0m
+      [31m-[0m[0m kms_data_key_reuse_period_seconds = 300 [90m-> null[0m[0m
+      [31m-[0m[0m max_message_size                  = 262144 [90m-> null[0m[0m
+      [31m-[0m[0m message_retention_seconds         = 345600 [90m-> null[0m[0m
+      [31m-[0m[0m name                              = "edus-click-queue" [90m-> null[0m[0m
+      [31m-[0m[0m receive_wait_time_seconds         = 0 [90m-> null[0m[0m
+      [31m-[0m[0m redrive_policy                    = jsonencode(
+            {
+              [31m-[0m[0m deadLetterTargetArn = "arn:aws:sqs:us-east-1:503638491662:edus-click-dlq"
+              [31m-[0m[0m maxReceiveCount     = 3
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m sqs_managed_sse_enabled           = true [90m-> null[0m[0m
+      [31m-[0m[0m tags                              = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                          = {
+          [31m-[0m[0m "lifecycle" = "portfolio"
+          [31m-[0m[0m "managed"   = "terraform"
+          [31m-[0m[0m "project"   = "event-driven-url-shortener"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m url                               = "https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-queue" [90m-> null[0m[0m
+      [31m-[0m[0m visibility_timeout_seconds        = 30 [90m-> null[0m[0m
+        [90m# (6 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # random_id.bucket_suffix[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "random_id" "bucket_suffix" {
+      [31m-[0m[0m b64_std     = "anw46w==" [90m-> null[0m[0m
+      [31m-[0m[0m b64_url     = "anw46w" [90m-> null[0m[0m
+      [31m-[0m[0m byte_length = 4 [90m-> null[0m[0m
+      [31m-[0m[0m dec         = "1786525931" [90m-> null[0m[0m
+      [31m-[0m[0m hex         = "6a7c38eb" [90m-> null[0m[0m
+      [31m-[0m[0m id          = "anw46w" [90m-> null[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 26 to destroy.
+
+Changes to Outputs:
+  [31m-[0m[0m api_url           = "https://t4pwz74fp1.execute-api.us-east-1.amazonaws.com" [90m-> null[0m[0m
+  [31m-[0m[0m artifacts_bucket  = "edus-lambda-artifacts-6a7c38eb" [90m-> null[0m[0m
+  [31m-[0m[0m click_queue_url   = "https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-queue" [90m-> null[0m[0m
+  [31m-[0m[0m create_function   = "edus-create" [90m-> null[0m[0m
+  [31m-[0m[0m dlq_url           = "https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-dlq" [90m-> null[0m[0m
+  [31m-[0m[0m redirect_function = "edus-redirect" [90m-> null[0m[0m
+  [31m-[0m[0m table_name        = "edus-links" [90m-> null[0m[0m
+  [31m-[0m[0m worker_function   = "edus-worker" [90m-> null[0m[0m
+[0m[1maws_lambda_permission.create: Destroying... [id=AllowAPIGatewayCreate][0m[0m
+[0m[1maws_lambda_event_source_mapping.worker_sqs: Destroying... [id=6538b26b-75bd-464b-9711-b48bb6c19a33][0m[0m
+[0m[1maws_apigatewayv2_route.redirect: Destroying... [id=hg96joj][0m[0m
+[0m[1maws_s3_bucket_public_access_block.lambda_artifacts: Destroying... [id=edus-lambda-artifacts-6a7c38eb][0m[0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.lambda_artifacts: Destroying... [id=edus-lambda-artifacts-6a7c38eb][0m[0m
+[0m[1maws_apigatewayv2_stage.default: Destroying... [id=$default][0m[0m
+[0m[1maws_iam_role_policy.worker: Destroying... [id=edus-worker-role:terraform-20261117185352206500000002][0m[0m
+[0m[1maws_lambda_permission.redirect: Destroying... [id=AllowAPIGatewayRedirect][0m[0m
+[0m[1maws_iam_role_policy.create: Destroying... [id=edus-create-role:terraform-20261117185313905800000001][0m[0m
+[0m[1maws_budgets_budget.portfolio: Destroying... [id=503638491662:edus-monthly-budget][0m[0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.lambda_artifacts: Destruction complete after 1s[0m
+[0m[1maws_apigatewayv2_route.redirect: Destruction complete after 1s[0m
+[0m[1maws_iam_role_policy.redirect: Destroying... [id=edus-redirect-role:terraform-20261117185352208400000003][0m[0m
+[0m[1maws_apigatewayv2_stage.default: Destruction complete after 1s[0m
+[0m[1maws_budgets_budget.portfolio: Destruction complete after 1s[0m
+[0m[1maws_apigatewayv2_route.create: Destroying... [id=vcurvfm][0m[0m
+[0m[1maws_apigatewayv2_integration.redirect: Destroying... [id=t1ixd46][0m[0m
+[0m[1maws_lambda_permission.redirect: Destruction complete after 1s[0m
+[0m[1maws_iam_role_policy.worker: Destruction complete after 1s[0m
+[0m[1maws_iam_role_policy.create: Destruction complete after 1s[0m
+[0m[1maws_lambda_permission.create: Destruction complete after 1s[0m
+[0m[1maws_apigatewayv2_integration.redirect: Destruction complete after 1s[0m
+[0m[1maws_apigatewayv2_route.create: Destruction complete after 1s[0m
+[0m[1maws_lambda_function.redirect: Destroying... [id=edus-redirect][0m[0m
+[0m[1maws_iam_role_policy.redirect: Destruction complete after 1s[0m
+[0m[1maws_apigatewayv2_integration.create: Destroying... [id=b4k7a2h][0m[0m
+[0m[1maws_s3_bucket_public_access_block.lambda_artifacts: Destruction complete after 2s[0m
+[0m[1maws_s3_bucket.lambda_artifacts: Destroying... [id=edus-lambda-artifacts-6a7c38eb][0m[0m
+[0m[1maws_apigatewayv2_integration.create: Destruction complete after 0s[0m
+[0m[1maws_apigatewayv2_api.http: Destroying... [id=t4pwz74fp1][0m[0m
+[0m[1maws_lambda_function.create: Destroying... [id=edus-create][0m[0m
+[0m[1maws_lambda_function.redirect: Destruction complete after 0s[0m
+[0m[1maws_iam_role.redirect: Destroying... [id=edus-redirect-role][0m[0m
+[0m[1maws_lambda_function.create: Destruction complete after 1s[0m
+[0m[1maws_iam_role.create: Destroying... [id=edus-create-role][0m[0m
+[0m[1maws_s3_bucket.lambda_artifacts: Destruction complete after 1s[0m
+[0m[1mrandom_id.bucket_suffix: Destroying... [id=anw46w][0m[0m
+[0m[1maws_apigatewayv2_api.http: Destruction complete after 1s[0m
+[0m[1mrandom_id.bucket_suffix: Destruction complete after 0s[0m
+[0m[1maws_iam_role.redirect: Destruction complete after 1s[0m
+[0m[1maws_iam_role.create: Destruction complete after 0s[0m
+[0m[1maws_lambda_event_source_mapping.worker_sqs: Destruction complete after 5s[0m
+[0m[1maws_sqs_queue.click_queue: Destroying... [id=https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-queue][0m[0m
+[0m[1maws_lambda_function.worker: Destroying... [id=edus-worker][0m[0m
+[0m[1maws_lambda_function.worker: Destruction complete after 0s[0m
+[0m[1maws_iam_role.worker: Destroying... [id=edus-worker-role][0m[0m
+[0m[1maws_dynamodb_table.links: Destroying... [id=edus-links][0m[0m
+[0m[1maws_iam_role.worker: Destruction complete after 2s[0m
+[0m[1maws_sqs_queue.click_queue: Destruction complete after 9s[0m
+[0m[1maws_sqs_queue.click_dlq: Destroying... [id=https://sqs.us-east-1.amazonaws.com/503638491662/edus-click-dlq][0m[0m
+[0m[1maws_dynamodb_table.links: Destruction complete after 10s[0m
+[0m[1maws_sqs_queue.click_dlq: Destruction complete after 7s[0m
+[0m[1m[32m
+Destroy complete! Resources: 26 destroyed.[0m

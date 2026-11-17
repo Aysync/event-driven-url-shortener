@@ -1,0 +1,19 @@
+node_modules/
+dist/
+
+# Terraform — never commit state or plans
+infra/.terraform/
+infra/build/
+*.tfstate
+*.tfstate.backup
+tfplan
+infra/tfplan
+
+# Real variable values — email etc.
+infra/terraform.tfvars
+
+# Localstack volume data
+local/localstack/
+
+# OS noise
+.DS_Store

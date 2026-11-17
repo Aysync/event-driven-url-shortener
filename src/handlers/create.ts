@@ -35,12 +35,17 @@ export const handler = async (
     body.idempotencyKey
   );
 
+  const host = event.requestContext.domainName;
+  const stage = event.requestContext.stage;
+  const stagePrefix = stage === "$default" ? "" : `/${stage}`;
+  const baseUrl = `https://${host}${stagePrefix}`;
+
   return {
     statusCode: replay ? 200 : 201,
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       code: item.code,
-      shortUrl: `${process.env.BASE_URL ?? "http://localhost:4566"}/${item.code}`,
+      shortUrl: `${baseUrl}/${item.code}`,
       idempotentReplay: replay,
     }),
   };
